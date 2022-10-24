@@ -1,3 +1,3 @@
-# skyant.data.entity.google.Tasks
+# skyant.data.google.Tasks
 
-::: skyant.data.entity.google.Tasks
+::: skyant.data.google.Tasks

@@ -1,3 +1,3 @@
-# skyant.data.entity.google.Firestore
+# skyant.data.google.Firestore
 
-::: skyant.data.entity.google.Firestore
+::: skyant.data.google.Firestore

@@ -1,3 +1,3 @@
-# skyant.data.entity.config.CameModel
+# skyant.data.config.CameModel
 
-::: skyant.data.entity.config.CamelModel
+::: skyant.data.config.CamelModel

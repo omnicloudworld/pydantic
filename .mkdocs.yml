@@ -1,8 +1,8 @@
-site_name: Data Entity by SkyANT
+site_name: skyant.data
 
 docs_dir: .docs
-repo_url: https://gitlab.com/skyant/data/entity
-repo_name: data/entity
+repo_url: https://gitlab.com/skyant/python/data
+repo_name: skyant/python/data
 edit_uri: ""
 
 theme: 
@@ -64,25 +64,16 @@ nav:
 
     - 'HOME': index.md
     
-    - 'CONFIG':
+    - 'REFERENCES':
         - 'CamelModel': config/CamelModel.md
         - 'NoAdditional': config/NoAdditional.md
-    
-    - 'FIELDS':
         - 'FirestoreRef': fields/FirestoreRef.md
-    
-    - 'FILES':
         - 'Local': files/Local.md
-
-    - 'GOOGLE':
         - 'Firestore': google/Firestore.md
         - 'Storage': google/Storage.md
         - 'Tasks': google/Tasks.md
         - 'PubSub': google/PubSub.md
-
-    - 'REST':
-        - 'GENERAL': rest/General.md
-
-    - '_tools':
-        - 'json': _tools/json.md
-        - 'file': _tools/file.md
+        - 'REST': rest/General.md
+        - '_tools':
+            - 'json': _tools/json.md
+            - 'file': _tools/file.md

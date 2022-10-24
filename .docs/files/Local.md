@@ -1,3 +1,3 @@
-# skyant.data.entity.files.Local
+# skyant.data.files.Local
 
-::: skyant.data.entity.files.Local
+::: skyant.data.files.Local

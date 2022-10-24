@@ -25,6 +25,9 @@ kwargs = {
     'install_requires': conf['REQUIREMENTS']
 }
 
+if 'LICENSE' in conf:
+    kwargs['license'] = conf['LICENSE']
+
 if Path('README.md').is_file():
 
     with open('README.md', 'r', encoding='utf-8') as md:

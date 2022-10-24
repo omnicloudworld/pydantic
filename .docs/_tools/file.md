@@ -1,4 +1,4 @@
-# skyant.data.entity._tools.file
+# skyant.data._tools.file
 
-::: skyant.data.entity._tools.file.SaveLoad
+::: skyant.data._tools.file.SaveLoad
 

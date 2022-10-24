@@ -1,4 +1,5 @@
 ---
+title: Data | SkyANT
 hide:
     - toc
     - footer
@@ -8,4 +9,4 @@ hide:
 
 # Data Entity
 
-::: skyant.data.entity
+::: skyant.data

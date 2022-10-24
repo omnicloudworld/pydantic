@@ -1,3 +1,3 @@
-# skyant.data.entity.google.Storage
+# skyant.data.google.Storage
 
-::: skyant.data.entity.google.Storage
+::: skyant.data.google.Storage

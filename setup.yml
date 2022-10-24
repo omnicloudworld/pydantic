@@ -1,13 +1,13 @@
-NAMESPACE: skyant.data.entity
+NAMESPACE: skyant.data
 MODULES:
-    -   skyant.data.entity
-    -   skyant.data.entity.files
-    -   skyant.data.entity.config
-    -   skyant.data.entity.google
-    -   skyant.data.entity.grpc
-    -   skyant.data.entity.rest
-    -   skyant.data.entity.fields
-    -   skyant.data.entity._tools
+    -   skyant.data
+    -   skyant.data.files
+    -   skyant.data.config
+    -   skyant.data.google
+    -   skyant.data.grpc
+    -   skyant.data.rest
+    -   skyant.data.fields
+    -   skyant.data._tools
 
 VERSION: 1.0
 
@@ -19,9 +19,10 @@ DONATE: https://buymeacoffee.com/skyantdev
 NEWS: https://twitter.com/skyantdev
 TALK: https://gitter.im/skyantdev/data
 
-
 AUTHOR: Iurii Tarasenko
 EMAIL: info@skyant.dev
+
+LICENSE: MIT
 
 PYTHON_REQ: '>=3.10'
 REQUIREMENTS:
