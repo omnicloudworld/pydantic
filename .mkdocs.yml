@@ -1,8 +1,8 @@
-site_name: Datager SkyANT
+site_name: Data Entity by SkyANT
 
 docs_dir: .docs
-repo_url: https://gitlab.com/skyant/data/datager
-repo_name: skyant/data/datager
+repo_url: https://gitlab.com/skyant/data/entity
+repo_name: data/entity
 edit_uri: ""
 
 theme: 
@@ -38,7 +38,7 @@ extra:
           name: SkyANT on Twitter
 
         - icon: fontawesome/solid/comment
-          link: https://gitter.com/skyantdev/datager
+          link: https://gitter.com/skyantdev/data
 
 
 
@@ -63,31 +63,26 @@ plugins:
 nav:
 
     - 'HOME': index.md
-    - 'QUICK START': start.md
+    
+    - 'CONFIG':
+        - 'CamelModel': config/CamelModel.md
+        - 'NoAdditional': config/NoAdditional.md
+    
+    - 'FIELDS':
+        - 'FirestoreRef': fields/FirestoreRef.md
+    
+    - 'FILES':
+        - 'Local': files/Local.md
 
-    - 'FEATURES':
-        - 'Files': files.md
-        - 'Google': google.md
-        - 'REST': rest.md
-        - 'gRPC': grpc.md
-        - 'Config': config.md
-        - 'Fields': fields.md
+    - 'GOOGLE':
+        - 'Firestore': google/Firestore.md
+        - 'Storage': google/Storage.md
+        - 'Tasks': google/Tasks.md
+        - 'PubSub': google/PubSub.md
 
-    - 'REFERENCES':
-        
-        - 'CamelModel': 'references/config/CamelModel.md'
-        - 'NoAdditional': 'references/config/NoAdditional.md'
-        
-        - 'FirestoreRef': 'references/fields/FirestoreRef.md'
-        - 'Local': 'references/files/Local.md'
+    - 'REST':
+        - 'GENERAL': rest/General.md
 
-        - 'Firestore': 'references/google/Firestore.md'
-        - 'Storage': 'references/google/Storage.md'
-        - 'Tasks': 'references/google/Tasks.md'
-        - 'PubSub': 'references/google/PubSub.md'
-
-        - 'REST': 'references/rest/General.md'
-
-        - '_tools':
-            - 'json': 'references/_tools/json.md'
-            - 'file': 'references/_tools/file.md'
+    - '_tools':
+        - 'json': _tools/json.md
+        - 'file': _tools/file.md

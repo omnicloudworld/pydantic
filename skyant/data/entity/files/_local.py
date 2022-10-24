@@ -111,7 +111,7 @@ class File(SaveLoad):
             UnknowType: Unknow file type!
 
         Returns:
-            The instance of skyant.datager.file.Local
+            The instance of skyant.data.entity.file.Local
         '''
 
         cls._check_file(fullname)

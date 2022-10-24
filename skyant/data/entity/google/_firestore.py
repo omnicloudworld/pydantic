@@ -171,7 +171,7 @@ class Firestore(SaveLoad):
             DocumnetIsnt: If you try to read a document that doesn't exist.
 
         Returns:
-            An instance of skyant.datager.google.Firestore object.
+            An instance of skyant.data.entity.google.Firestore object.
         '''
 
         fs_client = firestore.Client()

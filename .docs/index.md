@@ -1,13 +1,11 @@
 ---
 hide:
-    - title
-    - pageTitle
     - toc
     - footer
     - navigation
 ---
 
 
-# {DATA manAGER}
+# Data Entity
 
-::: skyant.datager
+::: skyant.data.entity

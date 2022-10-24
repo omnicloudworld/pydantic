@@ -21,7 +21,7 @@ class PubSub(BaseModel):
         attributes: dict | None = None,
         project: str = ADC_PROJECT,
         timeout: int = 5
-    ) -> str:  # TODO: skyant/data/datager#3
+    ) -> str:  # TODO: skyant/data/data.entity#3
         '''
         Send the model data to the Google PubSub topic.
 
