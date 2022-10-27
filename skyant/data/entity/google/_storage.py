@@ -8,9 +8,9 @@ from enum import Enum
 import yaml
 from google.cloud import storage as gcs
 
-from .._tools.file import SaveLoad
-from .._tools.json import StringEncoder
-from .._tools.e import UnknowType
+from ...tools.file import SaveLoad
+from ...tools.json import StringEncoder
+from ...tools.e import UnknowType
 
 
 class StorageClass(Enum):

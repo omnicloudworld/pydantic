@@ -1,23 +1,25 @@
 NAMESPACE: skyant.data
 MODULES:
     -   skyant.data
-    -   skyant.data.files
-    -   skyant.data.config
-    -   skyant.data.google
-    -   skyant.data.grpc
-    -   skyant.data.rest
-    -   skyant.data.fields
-    -   skyant.data._tools
+    -   skyant.data.entity
+    -   skyant.data.entity.files
+    -   skyant.data.entity.config
+    -   skyant.data.entity.google
+    -   skyant.data.entity.grpc
+    -   skyant.data.entity.rest
+    -   skyant.data.entity.fields
+    -   skyant.data.tools
+    -   skyant.data.dataset
 
 VERSION: 1.0
 
 DESCR: Extensions of pydantic model/config classes for working with Google Cloud Platform.
 KEYWORDS: pydantic, api, rest, GCP
 
-HOME: https://skyant.dev/projects/data/projects/entity
+HOME: https://skyant.dev/projects/data
 DONATE: https://buymeacoffee.com/skyantdev
-NEWS: https://twitter.com/skyantdev
-TALK: https://gitter.im/skyantdev/data
+NEWS: https://www.linkedin.com/company/skyantdev
+TALK: https://groups.google.com/a/skyant.dev/g/community?label=data
 
 AUTHOR: Iurii Tarasenko
 EMAIL: info@skyant.dev
@@ -26,6 +28,7 @@ LICENSE: MIT
 
 PYTHON_REQ: '>=3.10'
 REQUIREMENTS:
+    -   skyant
     -   pydantic
     -   PyYaml
     -   requests

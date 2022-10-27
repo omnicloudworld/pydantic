@@ -2,7 +2,7 @@
 
 import requests
 
-from .._tools.file import SaveLoad
+from ...tools.file import SaveLoad
 
 
 def prep_header(user_header: dict) -> dict:

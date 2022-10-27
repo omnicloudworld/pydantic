@@ -7,9 +7,9 @@ from warnings import warn
 from google.cloud import firestore
 from pydantic import BaseModel
 
-from .._tools.file import SaveLoad
+from ...tools.file import SaveLoad
 from ..fields import FirestoreRef
-from .._tools import e, w
+from ...tools import e, w
 
 
 class Firestore(SaveLoad):

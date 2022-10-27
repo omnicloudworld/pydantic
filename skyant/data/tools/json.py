@@ -5,7 +5,7 @@ from enum import Enum
 from ipaddress import IPv4Address, IPv6Address
 from json import JSONEncoder
 
-from ..fields import FirestoreRef
+from ..entity.fields import FirestoreRef
 
 
 def common_enc(obj: object):

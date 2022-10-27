@@ -23,6 +23,8 @@ theme:
         - navigation.tabs
         - navigation.tabs.sticky
 
+
+copyright: Copyright &copy; 2020 Iurii Tarasenko
 extra:
     generator: true
     homepage: https://skyant.dev
@@ -31,19 +33,17 @@ extra:
         
         - icon: fontawesome/solid/sack-dollar
           link: https://buymeacoffee.com/skyantdev
-          name: Donate us
         
-        - icon: fontawesome/brands/twitter
-          link: https://twitter.com/skyantdev
-          name: SkyANT on Twitter
+        - icon: fontawesome/brands/linkedin
+          link: https://www.linkedin.com/company/skyantdev
 
-        - icon: fontawesome/solid/comment
-          link: https://gitter.com/skyantdev/data
-
+        - icon: fontawesome/solid/user-group
+          link: https://groups.google.com/a/skyant.dev/g/community?label=data
 
 
 extra_css:
-    - https://skyant.dev/static/css/skyant.css
+    - static/css/skyant.css
+    - static/css/hide-title.css
 
 
 plugins:
@@ -59,21 +59,27 @@ plugins:
     - search:
         indexing: 'full'
 
+    - section-index
+
 
 nav:
 
     - 'HOME': index.md
-    
-    - 'REFERENCES':
-        - 'CamelModel': config/CamelModel.md
-        - 'NoAdditional': config/NoAdditional.md
-        - 'FirestoreRef': fields/FirestoreRef.md
-        - 'Local': files/Local.md
-        - 'Firestore': google/Firestore.md
-        - 'Storage': google/Storage.md
-        - 'Tasks': google/Tasks.md
-        - 'PubSub': google/PubSub.md
-        - 'REST': rest/General.md
-        - '_tools':
-            - 'json': _tools/json.md
-            - 'file': _tools/file.md
+    - 'QUICK START': start.md
+    - 'ENTITY':
+        - entity/index.md
+        - 'CamelModel': entity/config/CamelModel.md
+        - 'NoAdditional': entity/config/NoAdditional.md
+        - 'FirestoreRef': entity/fields/FirestoreRef.md
+        - 'Local': entity/files/Local.md
+        - 'Firestore': entity/google/Firestore.md
+        - 'Storage': entity/google/Storage.md
+        - 'Tasks': entity/google/Tasks.md
+        - 'PubSub': entity/google/PubSub.md
+        - 'REST': entity/rest/General.md
+    - 'DATASET':
+        - dataset/index.md
+    - 'TOOLS':
+        - tools/index.md
+        - 'json': tools/json.md
+        - 'file': tools/file.md
