@@ -42,8 +42,8 @@ extra:
 
 
 extra_css:
-    - static/css/skyant.css
-    - static/css/hide-title.css
+    - https://skyant.dev/static/css/skyant.css
+    - https://skyant.dev/static/css/hide-title.css
 
 
 plugins:
