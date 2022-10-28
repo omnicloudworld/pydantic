@@ -1,8 +1,3 @@
-
-site_name: !ENV ["SITE_NAME", SkyANT]
-repo_url: !ENV ['REPO_URL', https://gitlab.com/skyant]
-repo_name: !ENV READTHEDOCS_PROJECT
-
 nav:
 
     - 'HOME': index.md
@@ -27,6 +22,9 @@ nav:
 
 
 
+site_name: skyant.data
+repo_url: https://gitlab.com/skyant/python/data
+repo_name: skyant/python/data
 
 
 
@@ -69,7 +67,7 @@ extra:
           name: news
 
         - icon: fontawesome/solid/user-group
-          link: !ENV [COMMUNITY_URL, 'https://groups.google.com/a/skyant.dev/g/community']
+          link: https://groups.google.com/a/skyant.dev/g/community?label=data
           name: community
 
 
