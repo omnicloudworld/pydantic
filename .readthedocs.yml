@@ -9,12 +9,6 @@ build:
     os: ubuntu-22.04
     tools:
         python: "3.10"
-    jobs:
-        pre_build:
-            -   export SITE_NAME=${SITE_NAME}
-            -   export REPO_URL=${REPO_URL}
-            -   export REPO_NAME=${REPO_NAME}
-            -   export COMMUNITY_URL=${COMMUNITY_URL}
 
 python:
     install:

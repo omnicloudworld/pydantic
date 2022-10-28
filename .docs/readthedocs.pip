@@ -2,3 +2,6 @@ mkdocs-material
 mkdocs
 mkdocstrings[python]
 mkdocs-section-index
+
+pyyaml
+pyyaml_env_tag
