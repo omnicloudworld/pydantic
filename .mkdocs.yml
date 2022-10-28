@@ -74,6 +74,7 @@ extra:
 extra_css:
     - https://skyant.dev/static/css/skyant.css
     - https://skyant.dev/static/css/hide-title.css
+    - https://skyant.dev/static/css/hide-versions.css
 
 
 plugins:
