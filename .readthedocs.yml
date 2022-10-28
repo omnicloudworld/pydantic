@@ -9,14 +9,6 @@ build:
     os: ubuntu-22.04
     tools:
         python: "3.10"
-    jobs:
-        pre_build:
-          - >
-            python3 <<EOF
-            import yaml\n
-            from yaml_env_tag import construct_env_tag\n
-            yaml.Loader.add_constructor('!ENV', construct_env_tag)\n
-            EOF
 
 python:
     install:
