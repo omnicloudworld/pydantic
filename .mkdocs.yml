@@ -1,5 +1,5 @@
 
-site_name: !ENV [SITE_NAME, READTHEDOCS_SITE_NAME, 'Z']
+site_name: !!python/object/apply:os.getenv ["SITE_NAME"]
 repo_url: !!python/object/apply:os.getenv ["REPO_URL"]
 repo_name: !ENV REPO_NAME
 
