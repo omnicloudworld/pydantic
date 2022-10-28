@@ -33,7 +33,7 @@ docs_dir: .docs
 edit_uri: ""
 
 theme: 
-    name: material
+    name: readthedocs
     favicon: https://skyant.dev/assets/icons/558614-512-3.png
     logo: https://skyant.dev/assets/icons/558614.svg
     palette:
