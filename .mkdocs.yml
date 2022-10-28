@@ -1,8 +1,33 @@
-site_name: skyant.data
+nav:
+
+    - 'HOME': index.md
+    - 'QUICK START': start.md
+    - 'ENTITY':
+        - entity/index.md
+        - 'CamelModel': entity/config/CamelModel.md
+        - 'NoAdditional': entity/config/NoAdditional.md
+        - 'FirestoreRef': entity/fields/FirestoreRef.md
+        - 'Local': entity/files/Local.md
+        - 'Firestore': entity/google/Firestore.md
+        - 'Storage': entity/google/Storage.md
+        - 'Tasks': entity/google/Tasks.md
+        - 'PubSub': entity/google/PubSub.md
+        - 'REST': entity/rest/General.md
+    - 'DATASET':
+        - dataset/index.md
+    - 'TOOLS':
+        - tools/index.md
+        - 'json': tools/json.md
+        - 'file': tools/file.md
+
+
+
+
+site_name: !ENV SITE_NAME
 
 docs_dir: .docs
-repo_url: https://gitlab.com/skyant/python/data
-repo_name: skyant/python/data
+repo_url: !ENV REPO_URL
+repo_name: !ENV REPO_NAME
 edit_uri: ""
 
 theme: 
@@ -33,12 +58,15 @@ extra:
         
         - icon: fontawesome/solid/sack-dollar
           link: https://buymeacoffee.com/skyantdev
+          name: donation
         
         - icon: fontawesome/brands/linkedin
           link: https://www.linkedin.com/company/skyantdev
+          name: news
 
         - icon: fontawesome/solid/user-group
-          link: https://groups.google.com/a/skyant.dev/g/community?label=data
+          link: !ENV COMMUNITY_URL
+          name: community
 
 
 extra_css:
@@ -56,30 +84,5 @@ plugins:
                     show_root_toc_entry: true
                     show_bases: false
                     show_category_heading: false
-    - search:
-        indexing: 'full'
-
+    - search
     - section-index
-
-
-nav:
-
-    - 'HOME': index.md
-    - 'QUICK START': start.md
-    - 'ENTITY':
-        - entity/index.md
-        - 'CamelModel': entity/config/CamelModel.md
-        - 'NoAdditional': entity/config/NoAdditional.md
-        - 'FirestoreRef': entity/fields/FirestoreRef.md
-        - 'Local': entity/files/Local.md
-        - 'Firestore': entity/google/Firestore.md
-        - 'Storage': entity/google/Storage.md
-        - 'Tasks': entity/google/Tasks.md
-        - 'PubSub': entity/google/PubSub.md
-        - 'REST': entity/rest/General.md
-    - 'DATASET':
-        - dataset/index.md
-    - 'TOOLS':
-        - tools/index.md
-        - 'json': tools/json.md
-        - 'file': tools/file.md
