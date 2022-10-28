@@ -1,4 +1,3 @@
-INHERIT: .mkdocs.global.yml
 
 site_name: !ENV [SITE_NAME, READTHEDOCS_SITE_NAME, 'Z']
 repo_url: !!python/object/apply:os.getenv ["REPO_URL"]
@@ -25,3 +24,69 @@ nav:
         - tools/index.md
         - 'json': tools/json.md
         - 'file': tools/file.md
+
+
+
+
+
+
+
+docs_dir: .docs
+edit_uri: ""
+
+theme: 
+    name: material
+    favicon: https://skyant.dev/assets/icons/558614-512-3.png
+    logo: https://skyant.dev/assets/icons/558614.svg
+    palette:
+        primary: amber
+        accent: deep purple
+    font:
+        text: Montserrat
+        code: Roboto Mono
+    icon:
+        repo: fontawesome/brands/gitlab
+    features:
+        - search.highlight
+        - search.suggest
+        - navigation.tabs
+        - navigation.tabs.sticky
+
+
+copyright: Copyright &copy; 2020 Iurii Tarasenko
+extra:
+    generator: true
+    homepage: https://skyant.dev
+
+    social:
+        
+        - icon: fontawesome/solid/sack-dollar
+          link: https://buymeacoffee.com/skyantdev
+          name: donation
+        
+        - icon: fontawesome/brands/linkedin
+          link: https://www.linkedin.com/company/skyantdev
+          name: news
+
+        - icon: fontawesome/solid/user-group
+          link: !ENV [COMMUNITY_URL, 'https://groups.google.com/a/skyant.dev/g/community']
+          name: community
+
+
+extra_css:
+    - https://skyant.dev/static/css/skyant.css
+    - https://skyant.dev/static/css/hide-title.css
+
+
+plugins:
+    - mkdocstrings:
+        handlers:
+            python:
+                options:
+                    show_source: true
+                    show_root_full_path: false
+                    show_root_toc_entry: true
+                    show_bases: false
+                    show_category_heading: false
+    - search
+    - section-index
