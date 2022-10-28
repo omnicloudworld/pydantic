@@ -15,7 +15,7 @@ build:
             python3 <<EOF
             import yaml\n
             from yaml_env_tag import construct_env_tag\n
-            yaml.Loader.add_constructor("!ENV", construct_env_tag)\n
+            yaml.Loader.add_constructor('!ENV', construct_env_tag)\n
             EOF
 
 python:
