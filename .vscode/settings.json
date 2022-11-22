@@ -25,6 +25,26 @@
             ]
         }
     },
-    "terminal.integrated.defaultProfile.linux": "local"
+    "terminal.integrated.defaultProfile.linux": "local",
+    "cSpell.words": [
+        "COLDLINE",
+        "DESCR",
+        "Firestore",
+        "gauth",
+        "glightbox",
+        "gtasks",
+        "inlinehilite",
+        "Isnt",
+        "jsonschema",
+        "linenums",
+        "mkdocs",
+        "mkdocstrings",
+        "NEARLINE",
+        "NORTHAMERICA",
+        "pypi",
+        "PYPIORG",
+        "pyyaml",
+        "SOUTHAMERICA"
+    ]
 
 }

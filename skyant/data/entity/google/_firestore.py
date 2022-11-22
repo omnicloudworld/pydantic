@@ -17,19 +17,19 @@ class Firestore(SaveLoad):
     Class for saving & loading data to [Google Firestore](https://cloud.google.com/firestore).
 
     This class provide next additional features:
-        - transparency creating references between docoments;
+        - transparency creating references between documents;
         - transparency convert references to string after upload data;
-        - manage multilanguage content (ROADMAP).
+        - manage multilinguals content (ROADMAP).
     '''
 
     @staticmethod
     def firestore_encoder(src: BaseModel | list, **kw) -> dict:
         '''
-        Recursion function for loocking for a FirestoreRef fields and convert them into
+        Recursion function for looking for a FirestoreRef fields and convert them into
             firestore.References objects.
 
         Args:
-            src: Pydantic BaseModel or intheried instance for encoding.
+            src: Pydantic BaseModel or inherited instance for encoding.
 
         Returns:
             dict: Dict with firestore.DocumentReference as field if source field in FirestoreRef.
@@ -68,7 +68,7 @@ class Firestore(SaveLoad):
     @staticmethod
     def firestore_decoder(src: dict) -> dict:
         '''
-        This method convert all founden objects firestore.DocumentReference to string which
+        This method convert all founded objects firestore.DocumentReference to string which
             represent path to the firestore document.
 
         Args:
@@ -122,12 +122,12 @@ class Firestore(SaveLoad):
             path: The path for saving the data to.
 
             overwrite: Allow to overwrite the existing document. If True the existing document will be
-                overwrited, if False and the document exist save command will be ignored.
+                overwrites, if False and the document exist save command will be ignored.
 
             raise_exists: Require raise an exception in the document exist and overwrite is not allowed.
                 If True will be raised an exception, if False will be send a warning.
 
-            exclude_none: Keep or pass emplty values. If True, file will be contains "NaN" values.
+            exclude_none: Keep or pass empty values. If True, file will be contains "NaN" values.
 
             exclude_unset: Write or ignore default values. If False default values won't be written.
 
@@ -168,7 +168,7 @@ class Firestore(SaveLoad):
             path: Path to firestore document.
 
         Raises:
-            DocumnetIsnt: If you try to read a document that doesn't exist.
+            DocumentIsnt: If you try to read a document that doesn't exist.
 
         Returns:
             An instance of skyant.data.entity.google.Firestore object.

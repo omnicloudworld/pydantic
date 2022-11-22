@@ -10,12 +10,12 @@ import yaml
 
 from ...tools.file import SaveLoad
 from ...tools.json import StringEncoder
-from ...tools.e import UnknowType
+from ...tools.e import UnknownType
 
 
 class File(SaveLoad):
     '''
-    Saving/loading data to/from local file with some additional useful feutures such as:
+    Saving/loading data to/from local file with some additional useful features such as:
 
     - making parent directories
     - extended JSON encoder
@@ -33,7 +33,7 @@ class File(SaveLoad):
         if not Path(path).is_file():
             raise ValueError(f'Provided path {path} is not a file!')
 
-        SaveLoad._get_sufix(path, only_verify=True)
+        SaveLoad._get_suffix(path, only_verify=True)
 
     def save_local(
         self,
@@ -46,25 +46,25 @@ class File(SaveLoad):
         '''
         Method saves the data to a local JSON/YAML/AVRO file.
 
-        Before seving the method makes a full filesystem hyerarchy, so you can any path to it.
-        Additionly method has extended JSON encoder which deserialize IPv4Address, IPv6Address,
+        Before saving the method makes a full filesystem hierarchy, so you can any path to it.
+        Additionally method has extended JSON encoder which deserialize IPv4Address, IPv6Address,
             Enim objects and datetime (in format Y-m-d H:M:S acceptable by BigQuery).
 
         Args:
 
             fullname: Full pathname with extension.
 
-            encoding: File encodding.
+            encoding: File encoding.
 
             ensure_ascii: Keep or not non-ASCII characters.
 
-            exclude_none: Keep or pass emplty values. If True, file will be contains "NaN" values.
+            exclude_none: Keep or pass empty values. If True, file will be contains "NaN" values.
 
             exclude_unset: Write or ignore default values. If False default values won't be written.
 
         Raises:
             NotImplementedError: AVRO does not support now!
-            UnknowType: Unknow file type!
+            UnknownType: Unknown file type!
         '''
 
         parent_path, file_name, file_ext = self._prepare_path(fullname, make_parent=True)
@@ -93,7 +93,7 @@ class File(SaveLoad):
             raise NotImplementedError('avro doesn\'t support now')
 
         else:
-            raise UnknowType(f'{file_name}.{file_ext}')
+            raise UnknownType(f'{file_name}.{file_ext}')
 
     @classmethod
     def load_local(cls, fullname: str, encoding: str = 'utf8') -> File:
@@ -104,11 +104,11 @@ class File(SaveLoad):
 
             fullname: Full pathname with extension.
 
-            encoding: File encodding.
+            encoding: File encoding.
 
         Raises:
             NotImplementedError: AVRO does not support now!
-            UnknowType: Unknow file type!
+            UnknownType: Unknown file type!
 
         Returns:
             The instance of skyant.data.entity.file.Local
@@ -125,8 +125,8 @@ class File(SaveLoad):
                 return cls.parse_obj(yaml.safe_load(src_file))
 
         elif file_format == 'avro':
-            # TODO: Implement a procedure for loadding avro file from a Local filesystem.
+            # TODO: Implement a procedure for loading avro file from a Local filesystem.
             raise NotImplementedError('avro doesn\'t support now')
 
         else:
-            raise UnknowType(fullname)
+            raise UnknownType(fullname)

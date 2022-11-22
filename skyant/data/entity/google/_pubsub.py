@@ -27,7 +27,7 @@ class PubSub(BaseModel):
 
         Args:
 
-            topic (str): The PubSub topik name for send to.
+            topic (str): The PubSub topic name for send to.
 
             attributes (dict | None, optional): PubSub message's attributes.
                 Must be a dictionary with strings as a values.

@@ -10,7 +10,7 @@ from google.cloud import storage as gcs
 
 from ...tools.file import SaveLoad
 from ...tools.json import StringEncoder
-from ...tools.e import UnknowType
+from ...tools.e import UnknownType
 
 
 class StorageClass(Enum):
@@ -29,7 +29,7 @@ class Storage(SaveLoad):
     @property
     def GCSClass(cls) -> StorageClass:  # pylint: disable=invalid-name
         '''
-        Enumerator of posible Google Cloud Storage "Storage Classes", such as "standard",
+        Enumerator of possibles Google Cloud Storage "Storage Classes", such as "standard",
             "archive", etc.
 
         [Origin documentation](https://cloud.google.com/storage/docs/storage-classes)
@@ -57,17 +57,17 @@ class Storage(SaveLoad):
 
             storage_class: Google Storage Class to assign to file.
 
-            encoding: File encodding.
+            encoding: File encoding.
 
             ensure_ascii: Keep or not non-ASCII characters.
 
-            exclude_none: Keep or pass emplty values. If True, file will be contains "NaN" values.
+            exclude_none: Keep or pass empty values. If True, file will be contains "NaN" values.
 
             exclude_unset: Write or ignore default values. If False default values won't be written.
 
         Raises:
             NotImplementedError: AVRO does not support now!
-            UnknowType: Unknow file type!
+            UnknownType: Unknown file type!
         '''
 
         bucket_name, blob_name = self._prepare_gcs_uri(fullname)
@@ -99,7 +99,7 @@ class Storage(SaveLoad):
             raise NotImplementedError('AVRO doesn\'t support now!')
 
         else:
-            raise UnknowType(blob_name)
+            raise UnknownType(blob_name)
 
         blob = bucket.blob(blob_name)
         blob.upload_from_string(data, content_type=content_type)
@@ -114,11 +114,11 @@ class Storage(SaveLoad):
 
             fullname: Full file name include bucket name & extension.
 
-            encoding: File encodding.
+            encoding: File encoding.
 
         Raises:
             NotImplementedError: AVRO does not support now!
-            UnknowType: Unknow file type!
+            UnknownType: Unknown file type!
 
         Returns:
             The instance of this class.
@@ -137,11 +137,11 @@ class Storage(SaveLoad):
             data = yaml.safe_load(blob.download_as_text(encoding=encoding))
 
         elif file_format == 'avro':
-            # TODO: Implement a procedure for loadding avro file from Google Cloud Storage.
+            # TODO: Implement a procedure for loading avro file from Google Cloud Storage.
             raise NotImplementedError('AVRO doesn\'t support now!')
 
         else:
-            raise UnknowType(blob_name)
+            raise UnknownType(blob_name)
 
         cls._validate_schemas(data)
 

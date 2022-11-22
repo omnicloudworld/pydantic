@@ -28,7 +28,7 @@ class Rest(SaveLoad):
     '''
     Class for interacting with REST endpoint.
 
-    Class contains "send_\\*" methods of instance for sending a data & clase\'s methods "load_\\*"
+    Class contains "send_\\*" methods of instance for sending a data & classe\'s methods "load_\\*"
     for get data and make instance.
     '''
 
@@ -41,6 +41,7 @@ class Rest(SaveLoad):
         auth: tuple = None,
         exclude_none: bool = False,
         exclude_unset: bool = True,
+        timeout: int = 10,
         **kw
     ) -> requests.Response:
         '''
@@ -54,11 +55,11 @@ class Rest(SaveLoad):
 
             headers (dict, optional): (dict, optional): HTTP headers for attaching to a POST request.
 
-                Please be shure that headers "Accept" & "Content-Type" will be attached automatically.
+                Please be sure that headers "Accept" & "Content-Type" will be attached automatically.
 
             query (dict, optional): A query string for request url as a dictionary.
 
-            cookies (dict, optional): Coockies for attaching to the request.
+            cookies (dict, optional): Cookies for attaching to the request.
 
             auth (tuple, optional): Authentication tokens.
 
@@ -80,6 +81,7 @@ class Rest(SaveLoad):
             params=query,
             cookies=cookies,
             auth=auth,
+            timeout=timeout,
             **kw
         ).json()
 
@@ -93,10 +95,11 @@ class Rest(SaveLoad):
         query: dict = None,
         cookies: dict = None,
         auth: tuple = None,
+        timeout: int = 10,
         **kw
     ) -> SaveLoad | None:
         '''
-        Class method which send a GET request to a server and make a instanse of class from respond.
+        Class method which send a GET request to a server and make a instances of class from respond.
 
         Args:
 
@@ -106,11 +109,11 @@ class Rest(SaveLoad):
 
             headers (dict, optional): HTTP headers for attaching to a POST request.
 
-                Please be shure that headers "Accept" & "Content-Type" will be attached automatically.
+                Please be sure that headers "Accept" & "Content-Type" will be attached automatically.
 
             query (dict, optional): A query string for request url as a dictionary.
 
-            cookies (dict, optional): Coockies for attaching to the request.
+            cookies (dict, optional): Cookies for attaching to the request.
 
             auth (tuple, optional): Authentication tokens.
 
@@ -123,7 +126,7 @@ class Rest(SaveLoad):
         full_header = prep_header(headers)
 
         data = requests.get(
-            url, headers=full_header, params=query, cookies=cookies, auth=auth, **kw
+            url, headers=full_header, params=query, cookies=cookies, auth=auth, timeout=timeout, **kw
         ).json()
         cls._validate_schemas(data)
 
@@ -138,10 +141,11 @@ class Rest(SaveLoad):
         query: dict = None,
         cookies: dict = None,
         auth: tuple = None,
+        timeout: int = 10,
         **kw
     ) -> SaveLoad | None:
         '''
-        Class method which send a POST request to a server and make a instanse of class from respond.
+        Class method which send a POST request to a server and make a instance of class from respond.
 
         Args:
 
@@ -153,11 +157,11 @@ class Rest(SaveLoad):
 
             headers (dict, optional): HTTP headers for attaching to a POST request.
 
-                Please be shure that headers "Accept" & "Content-Type" will be attached automatically.
+                Please be sure that headers "Accept" & "Content-Type" will be attached automatically.
 
             query (dict, optional): A query string for request url as a dictionary.
 
-            cookies (dict, optional): Coockies for attaching to the request.
+            cookies (dict, optional): Cookies for attaching to the request.
 
             auth (tuple, optional): Authentication tokens.
 
@@ -169,7 +173,14 @@ class Rest(SaveLoad):
         full_header = prep_header(headers)
 
         data = requests.post(
-            url, data=data, headers=full_header, params=query, cookies=cookies, auth=auth, **kw
+            url,
+            data=data,
+            headers=full_header,
+            params=query,
+            cookies=cookies,
+            auth=auth,
+            timeout=timeout,
+            **kw
         ).json()
         cls._validate_schemas(data)
 

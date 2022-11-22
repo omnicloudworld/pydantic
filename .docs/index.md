@@ -7,6 +7,4 @@ hide:
 ---
 
 
-# Data Entity
-
-::: skyant.data
+#

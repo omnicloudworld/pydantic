@@ -57,7 +57,7 @@ class Tasks(BaseModel, ABC):
     @property
     def Method(cls) -> gtasks.HttpMethod:  # pylint: disable=invalid-name
         '''
-        Provides an enumerator of HTTP methods. Use it for making clear import statemnets.
+        Provides an enumerator of HTTP methods. Use it for making clear import statements.
         '''
 
         return gtasks.HttpMethod
@@ -81,7 +81,7 @@ class Tasks(BaseModel, ABC):
 
             location (LocationClass): Google Cloud region where Tasks queue is located.
 
-            method (gtasks.HttpMethod): The HTTP method which Google Tasks shuld be used for
+            method (gtasks.HttpMethod): The HTTP method which Google Tasks should be used for
                 doing the task.
 
             name (str | None, optional): Name of the new task in the queue. Will be assigned
