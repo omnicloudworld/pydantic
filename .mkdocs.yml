@@ -1,7 +1,14 @@
 nav:
 
     - 'HOME': index.md
-    - 'QUICK START': start.md
+    - 'FILES': files.md
+    - 'GOOGLE':
+        - google/index.md
+        - 'FIRESTORE': google/firestore.md
+        - 'PUBSUB': google/pubsub.md
+        - 'STORAGE': google/storage.md
+        - 'TASKS': google/tasks.md
+    - 'REST': rest.md
     - 'REFERENCES':
         - references/index.md
         - 'ENTITY':
@@ -15,12 +22,12 @@ nav:
             - 'Tasks': references/entity/google/Tasks.md
             - 'PubSub': references/entity/google/PubSub.md
             - 'REST': references/entity/rest/General.md
-        - 'DATASET':
-            - references/dataset/index.md
         - 'TOOLS':
             - references/tools/index.md
             - 'json': references/tools/json.md
             - 'file': references/tools/file.md
+        - 'DATASET':
+            - references/dataset/index.md
 
 
 site_name: skyant.data
