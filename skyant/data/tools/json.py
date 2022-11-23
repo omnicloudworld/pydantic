@@ -29,7 +29,7 @@ class StringEncoder(JSONEncoder):
     def default(self, o):
 
         if common_enc(o):
-            return common_enc(0)
+            return common_enc(o)
         elif isinstance(o, FirestoreRef):
             return str(o)
 

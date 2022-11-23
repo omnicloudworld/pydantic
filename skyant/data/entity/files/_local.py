@@ -40,8 +40,10 @@ class File(SaveLoad):
         fullname: str,
         encoding: str = 'utf8',
         ensure_ascii: bool = True,
+        by_alias: bool = False,
+        exclude_unset: bool = False,
+        exclude_defaults: bool = False,
         exclude_none: bool = False,
-        exclude_unset: bool = True
     ):
         '''
         Method saves the data to a local JSON/YAML/AVRO file.
@@ -49,6 +51,8 @@ class File(SaveLoad):
         Before saving the method makes a full filesystem hierarchy, so you can any path to it.
         Additionally method has extended JSON encoder which deserialize IPv4Address, IPv6Address,
             Enim objects and datetime (in format Y-m-d H:M:S acceptable by BigQuery).
+
+        [More about pydantic arguments](https://pydantic-docs.helpmanual.io/usage/exporting_models/#modeldict){ target=_blank }
 
         Args:
 
@@ -58,9 +62,13 @@ class File(SaveLoad):
 
             ensure_ascii: Keep or not non-ASCII characters.
 
-            exclude_none: Keep or pass empty values. If True, file will be contains "NaN" values.
+            by_alias: Use `Field` alias as object name in file.
 
             exclude_unset: Write or ignore default values. If False default values won't be written.
+
+            exclude_defaults: Ignore fields if value is equal default.
+
+            exclude_none: Keep or pass empty values. If True, file will be contains "NaN" values.
 
         Raises:
             NotImplementedError: AVRO does not support now!
@@ -74,7 +82,12 @@ class File(SaveLoad):
             with open(join(parent_path, f'{file_name}.{file_ext}'), 'w', encoding=encoding) as dump_file:
                 dump_file.write(
                     json.dumps(
-                        self.dict(exclude_unset=exclude_unset, exclude_none=exclude_none),
+                        self.dict(
+                            exclude_unset=exclude_unset,
+                            exclude_none=exclude_none,
+                            by_alias=by_alias,
+                            exclude_defaults=exclude_defaults
+                        ),
                         ensure_ascii=ensure_ascii,
                         cls=StringEncoder
                     )
@@ -83,7 +96,12 @@ class File(SaveLoad):
         elif file_format == 'yaml':
             with open(join(parent_path, f'{file_name}.{file_ext}'), 'w', encoding=encoding) as dump_file:
                 yaml.dump(
-                    self.dict(exclude_unset=exclude_unset, exclude_none=exclude_none),
+                    self.dict(
+                        exclude_unset=exclude_unset,
+                        exclude_none=exclude_none,
+                        by_alias=by_alias,
+                        exclude_defaults=exclude_defaults
+                    ),
                     dump_file,
                     default_flow_style=False
                 )
