@@ -1,14 +1,18 @@
 nav:
 
     - 'HOME': index.md
-    - 'FILES': files.md
-    - 'GOOGLE':
-        - google/index.md
-        - 'FIRESTORE': google/firestore.md
-        - 'PUBSUB': google/pubsub.md
-        - 'STORAGE': google/storage.md
-        - 'TASKS': google/tasks.md
-    - 'REST': rest.md
+    - 'ENTITY':
+        - entity/index.md
+        - 'LOCAL': entity/local.md
+        - 'GOOGLE':
+            - entity/google/index.md
+            - 'FIRESTORE': entity/google/firestore.md
+            - 'PUBSUB': entity/google/pubsub.md
+            - 'STORAGE': entity/google/storage.md
+            - 'TASKS': entity/google/tasks.md
+        - 'REST': entity/rest.md
+    - 'DATASET':
+        - dataset/index.md
     - 'REFERENCES':
         - references/index.md
         - 'ENTITY':

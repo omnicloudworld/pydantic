@@ -74,3 +74,5 @@ pypi/conf.json
 
 .html
 .venv/*/
+
+gcp.json

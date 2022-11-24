@@ -11,7 +11,8 @@ MODULES:
     -   skyant.data.tools
     -   skyant.data.dataset
 
-VERSION: 1.0
+VERSION: 0.0
+MINOR: 1
 
 DESCR: Extensions of pydantic model/config classes for working with Google Cloud Platform.
 KEYWORDS: pydantic, api, rest, GCP
@@ -28,7 +29,6 @@ LICENSE: MIT
 
 PYTHON_REQ: '>=3.10'
 REQUIREMENTS:
-    -   skyant
     -   pydantic
     -   PyYaml
     -   requests

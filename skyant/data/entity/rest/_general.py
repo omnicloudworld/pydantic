@@ -35,7 +35,7 @@ class Rest(SaveLoad):
     '''
     Class for interacting with REST endpoint.
 
-    Class contains "send_\\*" methods of instance for sending a data & classe\'s methods "load_\\*"
+    Class contains "send_\\*" methods of instance for sending a data & methods of class "load_\\*"
     for get data and make instance.
     '''
 
@@ -47,8 +47,11 @@ class Rest(SaveLoad):
         cookies: dict = None,
         auth: tuple = None,
         exclude_none: bool = False,
-        exclude_unset: bool = True,
+        exclude_unset: bool = False,
+        exclude_defaults: bool = False,
+        by_alias: bool = True,
         timeout: int = 10,
+        json_only: bool = True,
         **kw
     ) -> requests.Response | dict:
         '''
@@ -75,6 +78,10 @@ class Rest(SaveLoad):
             exclude_unset (bool, optional): Defines what does needs do with entity in data
                 which value is default value.
 
+            by_alias: Flag for using alias instead of python name of entity; by default FastAPI uses alias.
+
+            exclude_defaults: Ignore fields if value is equal default.
+
         Returns:
             Response object.
         '''
@@ -83,16 +90,21 @@ class Rest(SaveLoad):
 
         resp = requests.post(
             url,
-            data=self.dict(exclude_unset=exclude_unset, exclude_none=exclude_none),
+            data=self.dict(
+                exclude_unset=exclude_unset,
+                exclude_none=exclude_none,
+                exclude_defaults=exclude_defaults,
+                by_alias=by_alias
+            ),
             headers=full_header,
             params=query,
             cookies=cookies,
             auth=auth,
             timeout=timeout,
             **kw
-        ).json()
+        )
 
-        return resp
+        return resp.json if json_only else resp
 
     @classmethod
     def load_get(

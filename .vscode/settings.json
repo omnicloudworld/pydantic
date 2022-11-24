@@ -27,6 +27,7 @@
     },
     "terminal.integrated.defaultProfile.linux": "local",
     "cSpell.words": [
+        "classmethods",
         "COLDLINE",
         "DESCR",
         "Firestore",

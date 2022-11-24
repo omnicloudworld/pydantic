@@ -20,7 +20,7 @@ class StorageClass(Enum):
     ARCHIVE = 'ARCHIVE'
 
 
-class Storage(SaveLoad):
+class Blob(SaveLoad):
     '''
     Saving & loading files to/from [Google Cloud Storage](https://cloud.google.com/storage).
     '''
@@ -106,7 +106,7 @@ class Storage(SaveLoad):
         blob.update_storage_class(storage_class.value)
 
     @classmethod
-    def load_gcs(cls, fullname: str, encoding: str = 'utf8') -> Storage:
+    def load_gcs(cls, fullname: str, encoding: str = 'utf8') -> Blob:
         '''
         Load the data from Google Cloud Storage. Function reads JSON & YAML files.
 

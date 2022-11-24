@@ -1,26 +1,24 @@
 ---
 title: LOCAL FILES
-hide:
-    - navigation
 ---
 
 #
 
-For more easy & fast working with local data files `skyant.data.entity` provides class `files.Local`.
+For more easy & fast working with local data files `skyant.data.entity` provides class `local.File`.
 This class contains an instance method `save_local()` and class method `load_local()` that returns
 a class instance.
 
 ## Saving
 
-Please compare the saving JSON file with `files.Local` and without it:
+Please compare the saving JSON file with `local.File` and without it:
 
 
 
-=== "`skyant.data.entity.files.Local`"
+=== "`skyant.data.entity.local.File`"
 
 
     ```py linenums='1' title='saving JSON'
-    Local.save_local('any/subfolders/test.json')
+    File.save_local('any/subfolders/test.json')
     ```
 
 
@@ -32,7 +30,7 @@ Please compare the saving JSON file with `files.Local` and without it:
     ```
 
 
-The `skyant.data.entity.files.Local` provides not only more shortly syntax but also additional
+The `skyant.data.entity.local.File` provides not only more shortly syntax but also additional
 features:
 
 - auto-creating subfolders
@@ -46,7 +44,7 @@ features:
 ```py linenums='1' title='saving JSON (you can try it in Jupyter)'
 from datetime import datetime as dt
 from pydantic import BaseModel
-from skyant.data.entity import files
+from skyant.data.entity import local
 
 
 class Nested(BaseModel):
@@ -54,7 +52,7 @@ class Nested(BaseModel):
     date: dt.now()
 
 
-class Test(files.Local):
+class Test(local.File):
     num: int = 1
     ip: 
     nested: Nested
@@ -78,7 +76,7 @@ You can read more details [here](https://pydantic-docs.helpmanual.io/usage/expor
 ## Loading
 
 You should pass only one obligatory argument to class method `local_load('path/to/file.json')`
-to get the `Local` class instance from your file.
+to get the `File` class instance from your file.
 
 
 ```py linenums='1' title='loading JSON'
