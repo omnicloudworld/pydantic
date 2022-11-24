@@ -36,6 +36,7 @@
         "inlinehilite",
         "Isnt",
         "jsonschema",
+        "kwargs",
         "linenums",
         "mkdocs",
         "mkdocstrings",

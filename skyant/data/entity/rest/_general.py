@@ -1,8 +1,15 @@
 # pylint: disable=missing-docstring
 
+from __future__ import annotations
+
 import requests
 
 from ...tools.file import SaveLoad
+
+
+__all__ = [
+    'Rest'
+]
 
 
 def prep_header(user_header: dict) -> dict:
@@ -43,7 +50,7 @@ class Rest(SaveLoad):
         exclude_unset: bool = True,
         timeout: int = 10,
         **kw
-    ) -> requests.Response:
+    ) -> requests.Response | dict:
         '''
         Send the data as a body of POST request.
 
@@ -97,7 +104,7 @@ class Rest(SaveLoad):
         auth: tuple = None,
         timeout: int = 10,
         **kw
-    ) -> SaveLoad | None:
+    ) -> Rest | None:
         '''
         Class method which send a GET request to a server and make a instances of class from respond.
 
@@ -143,7 +150,7 @@ class Rest(SaveLoad):
         auth: tuple = None,
         timeout: int = 10,
         **kw
-    ) -> SaveLoad | None:
+    ) -> Rest | None:
         '''
         Class method which send a POST request to a server and make a instance of class from respond.
 

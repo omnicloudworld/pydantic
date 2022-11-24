@@ -5,3 +5,15 @@ hide:
 ---
 
 #
+
+
+## Sending data
+
+### As POST
+
+
+## Loading data
+
+### From GET
+
+### From POST

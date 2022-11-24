@@ -43,7 +43,7 @@ class File(SaveLoad):
         by_alias: bool = False,
         exclude_unset: bool = False,
         exclude_defaults: bool = False,
-        exclude_none: bool = False,
+        exclude_none: bool = False
     ):
         '''
         Method saves the data to a local JSON/YAML/AVRO file.
@@ -52,7 +52,8 @@ class File(SaveLoad):
         Additionally method has extended JSON encoder which deserialize IPv4Address, IPv6Address,
             Enim objects and datetime (in format Y-m-d H:M:S acceptable by BigQuery).
 
-        [More about pydantic arguments](https://pydantic-docs.helpmanual.io/usage/exporting_models/#modeldict){ target=_blank }
+        [More about pydantic arguments]\
+            (https://pydantic-docs.helpmanual.io/usage/exporting_models/#modeldict){ target=_blank }
 
         Args:
 

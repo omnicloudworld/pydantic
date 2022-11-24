@@ -7,6 +7,10 @@ hide:
 #
 
 For more easy & fast working with local data files `skyant.data.entity` provides class `files.Local`.
+This class contains an instance method `save_local()` and class method `load_local()` that returns
+a class instance.
+
+## Saving
 
 Please compare the saving JSON file with `files.Local` and without it:
 
@@ -36,7 +40,7 @@ features:
 - saving in different formats (json, yaml/yml)
 
 - encapsulated decoder for serialization more field types such as own special field type
-    [FirestoreRef](references/entity/fields/FirestoreRef.md) that defines references between documents in NoSQL serverless database [Firestore](https://cloud.google.com/firestore)
+    [FirestoreRef](references/entity/fields/FirestoreRef.md) that defines references between documents in [Firestore](https://cloud.google.com/firestore) - NoSQL serverless database[^1]
 
 
 ```py linenums='1' title='saving JSON (you can try it in Jupyter)'
@@ -63,3 +67,24 @@ test_model = Test(
 test_model.save_local('any/subfolders/test.json')
 test_model.save_local('another/folder/test.yaml')
 ```
+
+
+The method `dict()` of `pydantic.BaseModel` will receives the next parameters: `by_alias`, `exclude_unset`, `exclude_defaults`, `exclude_none`, all they will be passed to the method
+`save_local`.
+You can read more details [here](https://pydantic-docs.helpmanual.io/usage/exporting_models/#modeldict).
+
+
+
+## Loading
+
+You should pass only one obligatory argument to class method `local_load('path/to/file.json')`
+to get the `Local` class instance from your file.
+
+
+```py linenums='1' title='loading JSON'
+loaded_model = Test.local_load('any/subfolders/test.json')
+```
+
+
+[^1]:
+    Please found [here](google/firestore.md) more details about work with Google Cloud Firestore.
