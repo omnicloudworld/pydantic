@@ -1,12 +1,13 @@
 #  pylint: disable=missing-module-docstring
 
 import json
+from os import environ as env
 
 from google.auth import default
 from google.cloud import pubsub_v1 as pubsub
 from pydantic import BaseModel
 
-ADC_PROJECT = str(default()[1])
+CURRENT_PROJECT = env.get('GCP_PROJECT', None) or str(default()[1])
 
 
 class PubSub(BaseModel):
@@ -19,7 +20,7 @@ class PubSub(BaseModel):
         self,
         topic: str,
         attributes: dict | None = None,
-        project: str = ADC_PROJECT,
+        project: str = CURRENT_PROJECT,
         timeout: int = 5
     ) -> str:  # TODO: skyant/data/data.entity#3
         '''

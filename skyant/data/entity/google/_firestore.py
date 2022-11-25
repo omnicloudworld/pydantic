@@ -111,8 +111,10 @@ class Firestore(SaveLoad):
         path: str,
         overwrite: bool = False,
         raise_exists: bool = True,
-        exclude_none: bool = False,
-        exclude_unset: bool = True
+        by_alias: bool = False,
+        exclude_unset: bool = False,
+        exclude_defaults: bool = False,
+        exclude_none: bool = False
     ) -> str | None:
         '''
         Save the data to the firestore with overwriting and/or creating the document.
@@ -142,7 +144,11 @@ class Firestore(SaveLoad):
 
         # FirestoreRef converted to str
         data = self.firestore_encoder(
-            self, exclude_unset=exclude_unset, exclude_none=exclude_none
+            self,
+            by_alias=by_alias,
+            exclude_unset=exclude_unset,
+            exclude_defaults=exclude_defaults,
+            exclude_none=exclude_none
         )
 
         if len(path.split('/')) % 2 != 0:  # were got the path to the collection

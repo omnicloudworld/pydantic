@@ -64,9 +64,9 @@ class Tasks(BaseModel, ABC):
 
     def send_gtasks(
         self,
-        url: str,
         queue: str,
         location: LocationClass,
+        url: str,
         method: gtasks.HttpMethod,
         name: str | None = None
     ) -> str:
