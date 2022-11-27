@@ -59,11 +59,11 @@ class SaveLoad(BaseModel, ABC):
             ) from err
 
     @staticmethod
-    def _prepare_path(path: str, make_parent: bool = False, lower_sufix: bool = False) -> (str, str, str):
+    def _prepare_path(path: str, make_parent: bool = False, lower_suffix: bool = False) -> (str, str, str):
         '''
         Prepares a path for saving file & verify extension.
         This method:
-            - verify extension & revert it to lower case (if lower_sufix == True)
+            - verify extension & revert it to lower case (if lower_suffix == True)
             - can create the parent directory (if make == True)
 
         Args:
@@ -74,7 +74,7 @@ class SaveLoad(BaseModel, ABC):
         make_parent (bool, optional), default False:
             Flag to make the parent directory with all hyerarchy.
 
-        lower_sufix (bool, optional), default False:
+        lower_suffix (bool, optional), default False:
             Flsg to convert file extension to lower case.
 
         Returns:
@@ -87,29 +87,29 @@ class SaveLoad(BaseModel, ABC):
             File extension.
         '''
 
-        sufix = SaveLoad._get_sufix(path)
+        suffix = SaveLoad._get_suffix(path)
 
         parent = Path(path).parent
         if make_parent:
             Path(parent).mkdir(parents=True, exist_ok=True)
 
-        filename = path.split('/')[-1].replace(sufix, '')
-        sufix = sufix[1:].lower() if lower_sufix else sufix[1:]
+        filename = path.split('/')[-1].replace(suffix, '')
+        suffix = suffix[1:].lower() if lower_suffix else suffix[1:]
 
-        return str(parent), filename, sufix
+        return str(parent), filename, suffix
 
     @staticmethod
-    def _prepare_gcs_uri(path: str, lower_sufix: bool = False) -> (str, str):
+    def _prepare_gcs_uri(path: str, lower_suffix: bool = False) -> (str, str):
         '''
         Prepares a path\'s data for saving file & verify extension.
-        This method verify extension & revert it to lower case (if lower_sufix == True)
+        This method verify extension & revert it to lower case (if lower_suffix == True)
 
         Args:
 
         path (str):
             The full path to the file.
 
-        lower_sufix (bool, optional), default False:
+        lower_suffix (bool, optional), default False:
             Flsg to convert file extension to lower case.
 
         Returns:
@@ -122,19 +122,19 @@ class SaveLoad(BaseModel, ABC):
 
         assert path[:5] == 'gs://', 'The fullname argument have to contains schema "gs://"!'
 
-        sufix = SaveLoad._get_sufix(path)
+        suffix = SaveLoad._get_suffix(path)
         bucket = path.split('/')[2]
-        filename = path.split('/', 3)[-1].replace(sufix, '')
+        filename = path.split('/', 3)[-1].replace(suffix, '')
 
-        # sufix with dot needs to previouse line
-        sufix = sufix[1:].lower() if lower_sufix else sufix[1:]
+        # suffix with dot needs to previouse line
+        suffix = suffix[1:].lower() if lower_suffix else suffix[1:]
 
-        blob_name = f'{filename}.{sufix}'
+        blob_name = f'{filename}.{suffix}'
 
         return bucket, blob_name
 
     @staticmethod
-    def _get_sufix(path: str, only_verify: bool = False) -> str | None:
+    def _get_suffix(path: str, only_verify: bool = False) -> str | None:
         '''
         Gettin & verifing file extension. This function revert the extension WITH DOT (ex.: .ext)!
         The extension will be got from the path and compared with the values in FORMATS dictionary.
@@ -153,11 +153,11 @@ class SaveLoad(BaseModel, ABC):
             File extension with dot or None if only_verify == True.
         '''
 
-        sufix = Path(path).suffix
-        if sufix[1:].lower() not in SaveLoad.extensions:
+        suffix = Path(path).suffix
+        if suffix[1:].lower() not in SaveLoad.extensions:
             raise ValueError(f'File have to have one extension from: {SaveLoad.formats.keys()}!')
         if not only_verify:
-            return sufix
+            return suffix
 
     @staticmethod
     def _get_format(path: str) -> str:
@@ -176,8 +176,8 @@ class SaveLoad(BaseModel, ABC):
             Typical file format as lovercase extension string. Example: json, yaml...
         '''
 
-        sufix = SaveLoad._get_sufix(path)
-        formats = [k for k, v in SaveLoad.formats.items() if sufix[1:] in v]
+        suffix = SaveLoad._get_suffix(path)
+        formats = [k for k, v in SaveLoad.formats.items() if suffix[1:] in v]
         # pylint: disable=line-too-long
-        assert len(formats) == 1, f'Extension {sufix} uses more that one format! PLease verify the FORMATS dist!'
+        assert len(formats) == 1, f'Extension {suffix} uses more that one format! PLease verify the FORMATS dist!'
         return formats[0]

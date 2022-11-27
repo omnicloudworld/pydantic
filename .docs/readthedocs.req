@@ -2,6 +2,7 @@ mkdocs-material
 mkdocs
 mkdocstrings[python]
 mkdocs-section-index
+mkdocs-include-markdown-plugin
 
 pyyaml
 pyyaml_env_tag

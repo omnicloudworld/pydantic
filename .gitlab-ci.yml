@@ -16,7 +16,7 @@ build-job:
     variables:
         include: pypi/vars-ci.yml
     script:
-        -   if [[ "$CI_COMMIT_REF_NAME" == "main" ]]; then export BUILD_SUFIX=""; else export BUILD_SUFIX="dev"; fi;
+        -   if [[ "$CI_COMMIT_REF_NAME" == "main" ]]; then export BUILD_SUFFIX=""; else export BUILD_SUFFIX="dev"; fi;
         -   pip3 install --upgrade pip wheel build pyyaml markdown;
         -   python3 -m build --no-isolation .;
     artifacts:

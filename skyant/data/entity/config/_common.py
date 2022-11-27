@@ -5,8 +5,8 @@ from pydantic import BaseModel, Extra
 
 class CamelModel(BaseModel):
     '''
-    This class provides allias_generator function in Config subclass.
-    Thanks to it all properties name in OpenAPI will be had an allias in camel format.
+    This class provides allies_generator function in Config subclass.
+    Thanks to it all properties name in OpenAPI will be had an allies in camel format.
     For example: if BaseModel property has name example_name you can use this name in
     python code, but OpenAPI specification will be contains field ExampleName.
     '''

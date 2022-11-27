@@ -2,7 +2,7 @@
     "gitlens.autolinks": [
         {
             "prefix": "#",
-            "url": "https://gitlab.com/skyant/data/data.entity/-/issues/<num>"
+            "url": "https://gitlab.com/skyant/python/data/-/issues/<num>"
         }
     ],
     "autoDocstring.quoteStyle": "'''",
@@ -25,6 +25,29 @@
             ]
         }
     },
-    "terminal.integrated.defaultProfile.linux": "local"
+    "terminal.integrated.defaultProfile.linux": "local",
+    "cSpell.words": [
+        "classmethods",
+        "COLDLINE",
+        "DESCR",
+        "Firestore",
+        "gauth",
+        "glightbox",
+        "gtasks",
+        "inlinehilite",
+        "Isnt",
+        "jsonschema",
+        "kwargs",
+        "linenums",
+        "mkdocs",
+        "mkdocstrings",
+        "NEARLINE",
+        "NORTHAMERICA",
+        "pypi",
+        "PYPIORG",
+        "pyyaml",
+        "SOUTHAMERICA",
+        "tasklist"
+    ]
 
 }

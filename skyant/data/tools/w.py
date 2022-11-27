@@ -9,5 +9,5 @@ class DocumentExists(Warning):
 
     def __init__(self, path: str, **kw):
         self.path = path
-        self.message = f'The document {path} was be overwrited!'
+        self.message = f'The document {path} was be overwritten!'
         super().__init__(self.message, **kw)

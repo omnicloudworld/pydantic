@@ -1,54 +1,42 @@
 nav:
 
     - 'HOME': index.md
-    - 'QUICK START': start.md
     - 'ENTITY':
         - entity/index.md
-        - 'CamelModel': entity/config/CamelModel.md
-        - 'NoAdditional': entity/config/NoAdditional.md
-        - 'FirestoreRef': entity/fields/FirestoreRef.md
-        - 'Local': entity/files/Local.md
-        - 'Firestore': entity/google/Firestore.md
-        - 'Storage': entity/google/Storage.md
-        - 'Tasks': entity/google/Tasks.md
-        - 'PubSub': entity/google/PubSub.md
-        - 'REST': entity/rest/General.md
+        - 'LOCAL': entity/local.md
+        - 'GOOGLE':
+            - entity/google/index.md
+            - 'FIRESTORE': entity/google/firestore.md
+            - 'PUBSUB': entity/google/pubsub.md
+            - 'STORAGE': entity/google/storage.md
+            - 'TASKS': entity/google/tasks.md
+        - 'REST': entity/rest.md
     - 'DATASET':
         - dataset/index.md
-    - 'TOOLS':
-        - tools/index.md
-        - 'json': tools/json.md
-        - 'file': tools/file.md
+    - 'REFERENCES':
+        - references/index.md
+        - 'ENTITY':
+            - references/entity/index.md
+            - 'CamelModel': references/entity/config/CamelModel.md
+            - 'NoAdditional': references/entity/config/NoAdditional.md
+            - 'FirestoreRef': references/entity/fields/FirestoreRef.md
+            - 'Local': references/entity/files/Local.md
+            - 'Firestore': references/entity/google/Firestore.md
+            - 'Storage': references/entity/google/Storage.md
+            - 'Tasks': references/entity/google/Tasks.md
+            - 'PubSub': references/entity/google/PubSub.md
+            - 'REST': references/entity/rest/General.md
+        - 'TOOLS':
+            - references/tools/index.md
+            - 'json': references/tools/json.md
+            - 'file': references/tools/file.md
+        - 'DATASET':
+            - references/dataset/index.md
 
 
-
-site_name: skyant.data
+site_name: skyant-data
 repo_url: https://gitlab.com/skyant/python/data
 repo_name: skyant/python/data
-
-
-
-
-docs_dir: .docs
-edit_uri: ""
-
-theme: 
-    name: material
-    favicon: https://skyant.dev/assets/icons/558614-512-3.png
-    logo: https://skyant.dev/assets/icons/558614.svg
-    palette:
-        primary: amber
-        accent: deep purple
-    font:
-        text: Montserrat
-        code: Roboto Mono
-    icon:
-        repo: fontawesome/brands/gitlab
-    features:
-        - search.highlight
-        - search.suggest
-        - navigation.tabs
-        - navigation.tabs.sticky
 
 
 copyright: Copyright &copy; 2020 Iurii Tarasenko
@@ -71,6 +59,37 @@ extra:
           name: community
 
 
+
+
+###
+#  Template
+###
+
+
+docs_dir: .docs
+edit_uri: ""
+
+
+theme: 
+    name: material
+    favicon: https://skyant.dev/assets/icons/558614-512-3.png
+    logo: https://skyant.dev/assets/icons/558614.svg
+    palette:
+        primary: amber
+        accent: deep purple
+    font:
+        text: Montserrat
+        code: Roboto Mono
+    icon:
+        repo: fontawesome/brands/gitlab
+    features:
+        - search.highlight
+        - search.suggest
+        - navigation.tabs
+        - content.code.annotate
+        - content.tabs.link
+
+
 extra_css:
     - https://skyant.dev/static/css/skyant.css
     - https://skyant.dev/static/css/hide-title.css
@@ -84,8 +103,28 @@ plugins:
                 options:
                     show_source: true
                     show_root_full_path: false
-                    show_root_toc_entry: true
+                    show_root_toc_entry: false
                     show_bases: false
                     show_category_heading: false
     - search
     - section-index
+    - glightbox
+    - include-markdown
+
+
+markdown_extensions:
+    - pymdownx.highlight:
+        anchor_linenums: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+    - admonition
+    - pymdownx.details
+    - footnotes
+    - attr_list
+    - pymdownx.tabbed:
+        alternate_style: true 
+    - md_in_html
+    - def_list
+    - pymdownx.tasklist:
+        custom_checkbox: true

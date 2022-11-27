@@ -3,7 +3,7 @@ Module contains exceptions & warnings classes.
 '''
 
 
-class DocumnetExists(Exception):
+class DocumentExists(Exception):
     '''
     An attempt to save the data if the corresponding document exists and overwrite is not allowed.
     '''
@@ -16,7 +16,7 @@ class DocumnetExists(Exception):
 
 class DocumentIsnt(Exception):
     '''
-    An attempt to read the data if the corresponding document doen't exists.
+    An attempt to read the data if the corresponding document doesn't exists.
     '''
 
     def __init__(self, path: str, **kw):
@@ -25,7 +25,7 @@ class DocumentIsnt(Exception):
         super().__init__(self.message, **kw)
 
 
-class UnknowType(Exception):
+class UnknownType(Exception):
     '''
     An attempt to read or write didn't allow file type.
     '''

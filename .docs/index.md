@@ -1,5 +1,4 @@
 ---
-title: Data | SkyANT
 hide:
     - toc
     - footer
@@ -7,6 +6,9 @@ hide:
 ---
 
 
-# Data Entity
+#
 
-::: skyant.data
+{%
+   include-markdown "../README.md"
+   heading-offset=1
+%}

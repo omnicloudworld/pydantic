@@ -27,6 +27,6 @@ PubSub:
 '''
 
 from ._firestore import Firestore
-from ._storage import Storage
+from ._storage import Blob
 from ._tasks import Tasks
 from ._pubsub import PubSub
