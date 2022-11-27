@@ -2,7 +2,7 @@ NAMESPACE: skyant.data
 MODULES:
     -   skyant.data
     -   skyant.data.entity
-    -   skyant.data.entity.files
+    -   skyant.data.entity.local
     -   skyant.data.entity.config
     -   skyant.data.entity.google
     -   skyant.data.entity.grpc
