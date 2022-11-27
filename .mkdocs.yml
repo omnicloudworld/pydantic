@@ -34,7 +34,7 @@ nav:
             - references/dataset/index.md
 
 
-site_name: skyant.data
+site_name: skyant-data
 repo_url: https://gitlab.com/skyant/python/data
 repo_name: skyant/python/data
 
@@ -109,6 +109,7 @@ plugins:
     - search
     - section-index
     - glightbox
+    - include-markdown
 
 
 markdown_extensions:
@@ -124,3 +125,6 @@ markdown_extensions:
     - pymdownx.tabbed:
         alternate_style: true 
     - md_in_html
+    - def_list
+    - pymdownx.tasklist:
+        custom_checkbox: true

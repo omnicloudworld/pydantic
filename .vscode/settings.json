@@ -2,7 +2,7 @@
     "gitlens.autolinks": [
         {
             "prefix": "#",
-            "url": "https://gitlab.com/skyant/data/data.entity/-/issues/<num>"
+            "url": "https://gitlab.com/skyant/python/data/-/issues/<num>"
         }
     ],
     "autoDocstring.quoteStyle": "'''",
@@ -46,7 +46,8 @@
         "pypi",
         "PYPIORG",
         "pyyaml",
-        "SOUTHAMERICA"
+        "SOUTHAMERICA",
+        "tasklist"
     ]
 
 }

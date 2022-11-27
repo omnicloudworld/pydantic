@@ -41,10 +41,11 @@ class Blob(SaveLoad):
         self,
         fullname: str,
         storage_class: StorageClass = StorageClass.STANDARD,
-        encoding: str = 'utf8',
         ensure_ascii: bool = True,
-        exclude_none: bool = False,
-        exclude_unset: bool = True
+        by_alias: bool = False,
+        exclude_unset: bool = False,
+        exclude_defaults: bool = False,
+        exclude_none: bool = False
     ) -> None:
         '''
         Save data to Google Cloud Storage. This method supports:
@@ -74,22 +75,26 @@ class Blob(SaveLoad):
         file_format = self._get_format(fullname)
 
         bucket = gcs.Client().get_bucket(bucket_name)
+        data_src = self.dict(
+            exclude_unset=exclude_unset,
+            exclude_none=exclude_none,
+            exclude_defaults=exclude_defaults,
+            by_alias=by_alias
+        )
 
         if file_format == 'json':
 
             data = json.dumps(
-                self.dict(exclude_unset=exclude_unset, exclude_none=exclude_none),
+                data_src,
                 ensure_ascii=ensure_ascii,
-                cls=StringEncoder,
-                encoding=encoding
+                cls=StringEncoder
             )
             content_type = 'application/json'
 
         elif file_format == 'yaml':
             data = yaml.dump(
-                self.dict(exclude_unset=exclude_unset, exclude_none=exclude_none),
+                data_src,
                 default_flow_style=False,
-                encoding=encoding,
                 allow_unicode=not ensure_ascii
             )
             content_type = 'application/yaml'
@@ -106,7 +111,7 @@ class Blob(SaveLoad):
         blob.update_storage_class(storage_class.value)
 
     @classmethod
-    def load_gcs(cls, fullname: str, encoding: str = 'utf8') -> Blob:
+    def load_gcs(cls, fullname: str) -> Blob:
         '''
         Load the data from Google Cloud Storage. Function reads JSON & YAML files.
 
@@ -131,10 +136,10 @@ class Blob(SaveLoad):
         blob = bucket.blob(blob_name)
 
         if file_format == 'json':
-            data = json.loads(blob.download_as_text(encoding=encoding))
+            data = json.loads(blob.download_as_text())
 
         elif file_format == 'yaml':
-            data = yaml.safe_load(blob.download_as_text(encoding=encoding))
+            data = yaml.safe_load(blob.download_as_text())
 
         elif file_format == 'avro':
             # TODO: Implement a procedure for loading avro file from Google Cloud Storage.

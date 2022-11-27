@@ -1,5 +1,4 @@
 ---
-title: Data | SkyANT
 hide:
     - toc
     - footer
@@ -9,9 +8,7 @@ hide:
 
 #
 
-
-## Philosophy
-
-## Modules
-
-## Polymorphism
+{%
+   include-markdown "../README.md"
+   heading-offset=1
+%}
