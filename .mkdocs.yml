@@ -34,7 +34,7 @@ nav:
             - references/dataset/index.md
 
 
-site_name: skyant-data
+site_name: skyant.data
 repo_url: https://gitlab.com/skyant/python/data
 repo_name: skyant/python/data
 
@@ -53,7 +53,7 @@ edit_uri: ""
 extra:
 
     generator: true
-    homepage: https://skyant.dev
+    homepage: https://docs.skyant.dev
     analytics:
         provider: google
         property: G-1R41YK6WT2
@@ -85,8 +85,8 @@ theme:
         primary: amber
         accent: deep purple
     font:
-        text: Montserrat
-        code: Roboto Mono
+        text: Comfortaa
+        code: Montserrat
     icon:
         repo: fontawesome/brands/gitlab
     features:

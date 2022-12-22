@@ -12,15 +12,13 @@ MODULES:
     -   skyant.data.dataset
 
 VERSION: 0.0
-MINOR: 1
+MINOR: 2
 
-DESCR: Extensions of pydantic model/config classes for working with Google Cloud Platform.
+DESCR: Extended well-known objects for interaction with cloud
 KEYWORDS: pydantic, api, rest, GCP
 
-HOME: https://skyant.dev/projects/data
-DONATE: https://buymeacoffee.com/skyantdev
-NEWS: https://www.linkedin.com/company/skyantdev
-TALK: https://groups.google.com/a/skyant.dev/g/community?label=data
+HOME: https://skyant.dev
+DOCUMENTATION: https://docs.skyant.dev/projects/data
 
 AUTHOR: Iurii Tarasenko
 EMAIL: info@skyant.dev
