@@ -12,7 +12,7 @@ MODULES:
     -   skyant.data.dataset
 
 VERSION: 0.0
-MINOR: 2
+MINOR: 1-post1
 
 DESCR: Extended well-known objects for interaction with cloud
 KEYWORDS: pydantic, api, rest, GCP
